@@ -49,7 +49,7 @@ def find_flush(suits):
 
 # print(find_pairs(rank_list))
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     # hand = []
     hand = deal_hand()
     print_hand(hand)
