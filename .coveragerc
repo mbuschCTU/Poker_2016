@@ -1,8 +1,6 @@
 [run]
 branch = True
 source = ./
-pip install pytest-cov
-py.test --cov=./
 
 [report]
 exclude_lines =
@@ -12,3 +10,4 @@ exclude_lines =
     if __name__ == .__main__.:
 ignore_errors = True
 omit = tests_*
+show_missing = True
