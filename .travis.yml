@@ -12,4 +12,4 @@ script:
   - coverage run test_hand_eval.py
 
 after_success:
-- codecov
+  - codecov
