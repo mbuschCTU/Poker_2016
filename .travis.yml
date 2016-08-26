@@ -9,7 +9,7 @@ install:
   - pip install codecov
 
 script:
-  - coverage run test_hand_eval.py
+  - coverage run hand_eval.py
 
 after_success:
   - codecov
