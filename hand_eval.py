@@ -57,16 +57,16 @@ def find_suits(hand):
     return [card.suit for card in hand]
 
 #----------------------------------------------------------------------    
-def pair(hand):
+def find_pairs(hand):
     '''
     >>> hand1 = [Card(rank='9', suit='♦'), Card(rank='A', suit='♦'), Card(rank='A', suit='♥'), Card(rank='A', suit='♠'), Card(rank='3', suit='♠')]
-    >>> pair(hand1)
+    >>> find_pairs(hand1)
     0
     >>> hand2 = [Card(rank='8', suit='♠'), Card(rank='K', suit='♠'), Card(rank='J', suit='♦'), Card(rank='Q', suit='♠'), Card(rank='Q', suit='♥')]
-    >>> pair(hand2)
+    >>> find_pairs(hand2)
     1
     >>> hand2 = [Card(rank='8', suit='♠'), Card(rank='K', suit='♠'), Card(rank='8', suit='♦'), Card(rank='Q', suit='♠'), Card(rank='Q', suit='♥')]
-    >>> pair(hand2)
+    >>> find_pairs(hand2)
     2
 
     '''
@@ -103,7 +103,7 @@ def quad(hand):
     >>> hand1 = [Card(rank='A', suit='♣'), Card(rank='A', suit='♦'), Card(rank='A', suit='♥'), Card(rank='A', suit='♠'), Card(rank='3', suit='♠')]
     >>> quad(hand1)
     7
-    >>> hand2 = [Card(rank='8', suit='♠'), Card(rank='K', suit='♠'), Card(rank='J', suit='♦'), Card(rank='Q', suit='♠'), Card(rank='Q', suit='♥')]
+    >>> hand1 = [Card(rank='A', suit='♣'), Card(rank='A', suit='♦'), Card(rank='A', suit='♥'), Card(rank='A', suit='♠'), Card(rank='3', suit='♠')]
     >>> quad(hand2)
     0
     """
@@ -213,7 +213,7 @@ def rate_hand(hand):
     >>> rate_hand(hand1)
     7
     '''
-    pair_score = pair(hand)
+    pair_score = find_pairs(hand)
     triple_score = triple(hand)
     quad_score  = quad(hand)
     if pair_score == 1 and triple_score == 3:  # check for full house before returning pair or triple
@@ -249,7 +249,7 @@ def print_card(card):
     
 
 #----------------------------------------------------------------------
-def print_hand(hand):
+def print_hand(hand): # pragma: no cover
     """
     >>> hand1 = [Card(rank='9', suit='♦'), Card(rank='A', suit='♦'), Card(rank='A', suit='♥'), Card(rank='A', suit='♠'), Card(rank='9', suit='♠')]
     >>> print_hand(hand1)
@@ -280,7 +280,7 @@ def eval_winner(hand1, hand2):
     else:
         return 'tie'
     
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     import doctest
     doctest.testmod()
     hand1 = deal_hand()
