@@ -7,9 +7,9 @@ python:
 
 install:
   - pip install codecov
-
+  - pip install pytest-cov
 script:
-  - coverage run test_hand_eval.py
+  - py.test --cov=test_hand_eval.py
 
 after_success:
   - codecov
